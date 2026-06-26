@@ -91,6 +91,7 @@ export default function Home() {
                     </div>
                     <Link
                       href={`/prodotto/${heroProduct?.sku}`}
+                      data-cursor="product"
                       className="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-3 rounded-2xl border border-border bg-background/80 backdrop-blur px-5 py-4 transition-colors hover:bg-background"
                     >
                       <div className="min-w-0">
@@ -206,6 +207,7 @@ function CategoryCard({ cat, large = false }: { cat: CategorySummary; large?: bo
     <MagneticCard strength={0.12} className="h-full">
       <Link
         href={`/categoria/${cat.slug}`}
+        data-cursor="product"
         className={`group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-border bg-card transition-colors hover:border-brand/40 ${
           large ? "aspect-square md:aspect-auto md:h-full md:min-h-[26rem]" : "aspect-[4/3]"
         }`}
@@ -222,7 +224,7 @@ function CategoryCard({ cat, large = false }: { cat: CategorySummary; large?: bo
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-card via-card/80 to-transparent" />
         <div className="relative p-6 md:p-7">
           <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground mb-2">
-            <span className="rounded bg-muted px-1.5 py-0.5">{cat.meta.code}</span>
+            <span className="rounded bg-muted px-1.5 py-0.5 group-hover:text-accent transition-colors">{cat.meta.code}</span>
             <span className="tabular-nums">{cat.count} prodotti</span>
           </div>
           <h3 className={`font-display font-bold text-foreground ${large ? "text-2xl md:text-3xl" : "text-lg"}`}>
@@ -243,7 +245,7 @@ function CategoryCard({ cat, large = false }: { cat: CategorySummary; large?: bo
 
 function ProductCard({ product }: { product: Product }) {
   return (
-    <Link href={`/prodotto/${product.sku}`} className="group block">
+    <Link href={`/prodotto/${product.sku}`} data-cursor="product" className="group block">
       <div className="relative aspect-[4/5] mb-4 overflow-hidden rounded-2xl border border-border bg-white">
         {product.images[0] ? (
           <Image

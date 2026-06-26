@@ -136,6 +136,7 @@ export default async function ProductPage({ params }: { params: Promise<{ sku: s
               <Reveal key={rel.sku} delay={i * 0.05}>
                 <Link
                   href={`/prodotto/${rel.sku}`}
+                  data-cursor="product"
                   className="group flex h-full flex-col rounded-2xl border border-border bg-card overflow-hidden transition-colors hover:border-brand/40"
                 >
                   <div className="relative aspect-square bg-white border-b border-border">
