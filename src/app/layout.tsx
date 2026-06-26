@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SmoothScrollProvider } from "@/components/motion/SmoothScrollProvider";
 import { CursorProvider } from "@/components/motion/CursorProvider";
+import { ScrollSkew } from "@/components/motion/ScrollSkew";
 
 // Brand typography (matches kooper.it): Roboto + Roboto Condensed, with a
 // mono companion for the catalog-index motif.
@@ -47,7 +48,9 @@ export default function RootLayout({
         <SmoothScrollProvider>
           <CursorProvider />
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            <ScrollSkew>{children}</ScrollSkew>
+          </main>
           <Footer />
         </SmoothScrollProvider>
       </body>
