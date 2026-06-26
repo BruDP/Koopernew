@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
+import { KineticButton } from "@/components/ui/KineticButton";
 
 export const metadata: Metadata = {
   title: "Kooper X | Forno pizza premium — 400°C in 2 minuti",
@@ -95,17 +96,10 @@ export default function KooperXPage() {
 
           <Reveal y={18} delay={0.24}>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/categorie"
-                data-cursor="cta"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-zinc-100 px-7 py-4 font-medium text-[#0c0e11] transition-transform hover:-translate-y-0.5"
-              >
-                Esplora il catalogo Kooper
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+              <KineticButton href="/categorie" variant="light">Esplora il catalogo Kooper</KineticButton>
               <Link
                 href="/assistenza"
-                data-cursor="link"
+                data-cursor="cta"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-700 px-7 py-4 font-medium text-zinc-100 transition-colors hover:bg-zinc-800/60"
               >
                 Restiamo in contatto
@@ -269,17 +263,10 @@ export default function KooperXPage() {
           <div className="container mx-auto px-4 pb-16 md:pb-24 lg:px-8">
             <Reveal y={16}>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/categorie"
-                  data-cursor="cta"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-zinc-100 px-7 py-4 font-medium text-[#0c0e11] transition-transform hover:-translate-y-0.5"
-                >
-                  Esplora il catalogo Kooper
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+                <KineticButton href="/categorie" variant="light">Esplora il catalogo Kooper</KineticButton>
                 <Link
                   href="/assistenza"
-                  data-cursor="link"
+                  data-cursor="cta"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-700 px-7 py-4 font-medium text-zinc-100 transition-colors hover:bg-zinc-800/60"
                 >
                   Contattaci
