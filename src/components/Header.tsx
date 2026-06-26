@@ -73,21 +73,21 @@ export function Header() {
                       </motion.ul>
                     </div>
                     <div className="w-3/5 p-6 grid grid-cols-2 gap-4">
-                      <Link href="/categorie" className="group relative col-span-2 rounded-xl overflow-hidden border border-border bg-card aspect-[2.4/1]">
+                      <Link href="/categorie" data-cursor="link" className="group relative col-span-2 rounded-xl overflow-hidden border border-border bg-card aspect-[2.4/1]">
                         <div className="absolute inset-0 catalog-grid opacity-50" />
                         <div className="relative h-full p-5 flex flex-col justify-end">
                           <span className="font-display font-bold text-foreground text-lg">Sfoglia il catalogo completo</span>
                           <span className="text-sm text-muted-foreground">Tutte le {categoriesData.length} categorie in un colpo d'occhio</span>
                         </div>
                       </Link>
-                      <Link href="/categoria/promozioni" className="group relative rounded-xl overflow-hidden border border-border bg-card aspect-square">
+                      <Link href="/categoria/promozioni" data-cursor="link" className="group relative rounded-xl overflow-hidden border border-border bg-card aspect-square">
                         <div className="absolute inset-0 bg-accent/5 group-hover:bg-accent/10 transition-colors" />
                         <div className="absolute inset-0 p-4 flex flex-col justify-end">
                           <span className="font-medium text-foreground">Promozioni</span>
                           <span className="text-sm text-accent">Offerte del momento</span>
                         </div>
                       </Link>
-                      <Link href="/kooperx" className="group relative rounded-xl overflow-hidden border border-border bg-[#16191d] aspect-square">
+                      <Link href="/kooperx" data-cursor="link" className="group relative rounded-xl overflow-hidden border border-border bg-[#16191d] aspect-square">
                         <div className="absolute inset-0 p-4 flex flex-col justify-end">
                           <span className="font-medium text-zinc-100">KooperX</span>
                           <span className="text-sm text-zinc-400">La linea premium</span>
@@ -165,8 +165,9 @@ export function Header() {
                 <ul className="space-y-3">
                   {categoriesData.map(cat => (
                     <li key={cat.slug}>
-                      <Link 
-                        href={`/categoria/${cat.slug}`} 
+                      <Link
+                        href={`/categoria/${cat.slug}`}
+                        data-cursor="link"
                         className="block text-foreground"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
@@ -176,9 +177,9 @@ export function Header() {
                   ))}
                 </ul>
               </div>
-              <Link href="/kooperx" onClick={() => setIsMobileMenuOpen(false)}>KooperX</Link>
-              <Link href="/azienda" onClick={() => setIsMobileMenuOpen(false)}>Azienda</Link>
-              <Link href="/assistenza" onClick={() => setIsMobileMenuOpen(false)}>Assistenza</Link>
+              <Link href="/kooperx" data-cursor="link" onClick={() => setIsMobileMenuOpen(false)}>KooperX</Link>
+              <Link href="/azienda" data-cursor="link" onClick={() => setIsMobileMenuOpen(false)}>Azienda</Link>
+              <Link href="/assistenza" data-cursor="link" onClick={() => setIsMobileMenuOpen(false)}>Assistenza</Link>
             </nav>
           </div>
         )}
