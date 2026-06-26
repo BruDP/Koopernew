@@ -35,7 +35,7 @@ export function CursorProvider() {
       window.removeEventListener("pointerover", over);
       document.documentElement.classList.remove("cursor-kinetic");
     };
-  }, [reduce, x, y]);
+  }, [reduce]); // x/y are stable MotionValue refs — excluded from deps intentionally
 
   if (!enabled) return null;
 
