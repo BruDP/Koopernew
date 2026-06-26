@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
@@ -153,7 +152,7 @@ export default async function ProductPage({ params }: { params: Promise<{ sku: s
                   data-cursor="product"
                   className="group flex h-full flex-col rounded-2xl border border-border bg-card overflow-hidden transition-colors hover:border-brand/40"
                 >
-                  <div className="relative aspect-square bg-white border-b border-border">
+                  <div className="relative aspect-square bg-white border-b border-border overflow-hidden">
                     {rel.images[0] && (
                       <ProductImage
                         src={rel.images[0]}

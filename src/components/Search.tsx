@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Fuse from "fuse.js";
 import { Search as SearchIcon, X, Loader2 } from "lucide-react";
-import Image from "next/image";
 import { ProductImage } from "./ProductImage";
 
 type Product = {
