@@ -8,6 +8,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { ProductGallery } from "@/components/ProductGallery";
 import { KineticButton } from "@/components/ui/KineticButton";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { buildBreadcrumbList, buildProductSchema } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   return productsData.map((product) => ({ sku: product.sku }));
@@ -41,6 +42,22 @@ export default async function ProductPage({ params }: { params: Promise<{ sku: s
 
   return (
     <div className="container mx-auto px-4 lg:px-8 py-12 md:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildBreadcrumbList([
+              { name: "Home", href: "/" },
+              { name: product.category, href: `/categoria/${categorySlug(product.category)}` },
+              { name: product.title, href: `/prodotto/${product.sku}` },
+            ])
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildProductSchema(product)) }}
+      />
       <Breadcrumb items={[
         { label: "Home", href: "/" },
         { label: product.category, href: `/categoria/${categorySlug(product.category)}` },

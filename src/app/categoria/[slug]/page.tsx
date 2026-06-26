@@ -7,6 +7,7 @@ import categoriesData from "../../../data/categories.json";
 import { CATEGORY_META } from "@/lib/catalog";
 import { Reveal } from "@/components/motion/Reveal";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { buildBreadcrumbList } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   return categoriesData.map((cat) => ({ slug: cat.slug }));
@@ -37,6 +38,18 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   return (
     <div className="container mx-auto px-4 lg:px-8 py-12 md:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildBreadcrumbList([
+              { name: "Home", href: "/" },
+              { name: "Categorie", href: "/categorie" },
+              { name: category.name, href: `/categoria/${category.slug}` },
+            ])
+          ),
+        }}
+      />
       <Breadcrumb items={[
         { label: "Home", href: "/" },
         { label: "Categorie", href: "/categorie" },
