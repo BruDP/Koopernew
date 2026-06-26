@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Elettronica ed elettrodomestici",
+    "slug": "elettronica-ed-elettrodomestici",
+    "subcategories": [
+      {
+        "name": "ELETTRODOMESTICI",
+        "slug": "elettrodomestici"
+      },
+      {
+        "name": "ELETTRICITA",
+        "slug": "elettricita"
+      },
+      {
+        "name": "FAI DA TE",
+        "slug": "fai-da-te"
+      },
+      {
+        "name": "ELETTRONICA",
+        "slug": "elettronica"
+      }
+    ]
+  },
+  {
+    "name": "Natale",
+    "slug": "natale",
+    "subcategories": [
+      {
+        "name": "NATALE",
+        "slug": "natale"
+      }
+    ]
+  },
+  {
+    "name": "Arredo casa",
+    "slug": "arredo-casa",
+    "subcategories": [
+      {
+        "name": "ILLUMINAZIONE",
+        "slug": "illuminazione"
+      },
+      {
+        "name": "TESSILE",
+        "slug": "tessile"
+      },
+      {
+        "name": "ARREDAMENTO",
+        "slug": "arredamento"
+      }
+    ]
+  },
+  {
+    "name": "Promozioni",
+    "slug": "promozioni",
+    "subcategories": [
+      {
+        "name": "Omaggio",
+        "slug": "omaggio"
+      },
+      {
+        "name": "ExtraSconti",
+        "slug": "extrasconti"
+      },
+      {
+        "name": "VolantinoWeb",
+        "slug": "volantinoweb"
+      },
+      {
+        "name": "Speciale Cucina",
+        "slug": "speciale-cucina"
+      }
+    ]
+  },
+  {
+    "name": "Tavola e cucina",
+    "slug": "tavola-e-cucina",
+    "subcategories": [
+      {
+        "name": "CUCINA",
+        "slug": "cucina"
+      }
+    ]
+  },
+  {
+    "name": "Accessori e tempo libero",
+    "slug": "accessori-e-tempo-libero",
+    "subcategories": [
+      {
+        "name": "FITNESS",
+        "slug": "fitness"
+      }
+    ]
+  },
+  {
+    "name": "Outdoor",
+    "slug": "outdoor",
+    "subcategories": [
+      {
+        "name": "MARE E CAMPING",
+        "slug": "mare-e-camping"
+      }
+    ]
+  }
+]
