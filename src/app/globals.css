@@ -1,26 +1,136 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-brand: var(--brand);
+  --color-card: var(--card);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-float: float 9s ease-in-out infinite;
+}
+
+:root {
+  /* Slate-based identity, anchored to the Kooper wordmark (#3C4858) */
+  --background: #fbfaf7; /* warm paper */
+  --foreground: #23292f; /* deep slate ink */
+  --muted: #f1efea;
+  --muted-foreground: #6b7686; /* haze */
+  --border: #e6e3dd; /* hairline */
+  --primary: #3f5262; /* brand slate (kooper.it) */
+  --primary-foreground: #fbfaf7;
+  --accent: #c42026; /* brand red — used with restraint */
+  --accent-foreground: #ffffff;
+  --brand: #3f5262;
+  --card: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #16191d;
+    --foreground: #eceae5;
+    --muted: #23272e;
+    --muted-foreground: #9aa3af;
+    --border: #2b3038;
+    --primary: #e9e7e2;
+    --primary-foreground: #23292f;
+    --accent: #e8453f;
+    --accent-foreground: #ffffff;
+    --brand: #8a96a6;
+    --card: #1c2026;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* --- Lenis smooth scroll --- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* --- utilities --- */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+}
+
+/* Hairline grid — the "catalog index" signature motif */
+.catalog-grid {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-float {
+    animation: none !important;
+  }
+}
+
+/* Custom cursor: hide the native one only while the kinetic cursor is mounted */
+html.cursor-kinetic,
+html.cursor-kinetic * {
+  cursor: none !important;
 }
