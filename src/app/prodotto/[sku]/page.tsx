@@ -89,9 +89,9 @@ export default async function ProductPage({ params }: { params: Promise<{ sku: s
             </h1>
           </Reveal>
 
-          <Reveal y={18} delay={0.1}>
+          <Reveal y={16} delay={0.1}>
             <div className="mt-6 flex items-baseline gap-3">
-              <span className="text-4xl font-bold tabular-nums">€{product.specialPrice || product.price}</span>
+              <span className="text-4xl font-bold tabular-nums">€{product.specialPrice ?? product.price}</span>
               {onSale && (
                 <>
                   <span className="text-xl text-muted-foreground line-through tabular-nums">€{product.price}</span>
@@ -104,7 +104,7 @@ export default async function ProductPage({ params }: { params: Promise<{ sku: s
           </Reveal>
 
           {product.description && (
-            <Reveal y={18} delay={0.14}>
+            <Reveal y={16} delay={0.14}>
               <div
                 className="prose prose-sm dark:prose-invert mt-7 max-w-none text-muted-foreground"
                 dangerouslySetInnerHTML={{ __html: product.description }}
@@ -167,7 +167,7 @@ export default async function ProductPage({ params }: { params: Promise<{ sku: s
                     <h3 className="text-sm font-medium line-clamp-2 mb-2 group-hover:text-brand transition-colors">
                       {rel.title}
                     </h3>
-                    <div className="font-bold tabular-nums">€{rel.specialPrice || rel.price}</div>
+                    <div className="font-bold tabular-nums">€{rel.specialPrice ?? rel.price}</div>
                   </div>
                 </Link>
               </Reveal>

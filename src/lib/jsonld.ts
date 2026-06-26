@@ -1,6 +1,6 @@
 import type { Product } from "./catalog";
 
-const SITE_URL = "https://koopernew-h5bs.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://koopernew-h5bs.vercel.app";
 
 export function buildBreadcrumbList(
   items: { name: string; href: string }[]
