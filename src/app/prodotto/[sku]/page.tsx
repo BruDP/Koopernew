@@ -83,7 +83,7 @@ export default async function ProductPage({ params }: { params: Promise<{ sku: s
             </div>
           </Reveal>
 
-          <Reveal y={22} delay={0.05}>
+          <Reveal y={16} delay={0.05}>
             <h1 className="font-display mt-4 text-3xl md:text-5xl font-bold tracking-tight text-foreground">
               {product.title}
             </h1>

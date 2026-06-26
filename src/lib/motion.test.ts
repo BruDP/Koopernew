@@ -3,18 +3,18 @@ import assert from "node:assert/strict";
 import { velocityToSkew, EASE, DUR } from "./motion.ts";
 
 test("velocityToSkew clamps to +max", () => {
-  assert.equal(velocityToSkew(100000), 2.5);
+  assert.equal(velocityToSkew(100000), 1.2);
 });
 test("velocityToSkew clamps to -max", () => {
-  assert.equal(velocityToSkew(-100000), -2.5);
+  assert.equal(velocityToSkew(-100000), -1.2);
 });
 test("velocityToSkew is ~0 at rest", () => {
   assert.equal(velocityToSkew(0), 0);
 });
-test("velocityToSkew scales linearly below clamp", () => {
+test("velocityToSkew scales linearly below clamp (explicit args)", () => {
   assert.equal(velocityToSkew(500, 2.5, 0.002), 1);
 });
 test("tokens are present", () => {
   assert.equal(EASE.snap.length, 4);
-  assert.equal(DUR.slow, 0.34);
+  assert.equal(DUR.slow, 0.28);
 });

@@ -14,7 +14,7 @@ type RevealProps = {
 };
 
 /** Fade + rise into view once, on scroll. No-ops under reduced motion. */
-export function Reveal({ children, className, y = 24, delay = 0, as = "div" }: RevealProps) {
+export function Reveal({ children, className, y = 14, delay = 0, as = "div" }: RevealProps) {
   const reduce = useReducedMotion();
 
   if (reduce) {
@@ -30,7 +30,7 @@ export function Reveal({ children, className, y = 24, delay = 0, as = "div" }: R
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, ease: EASE.flow, delay }}
+      transition={{ duration: 0.5, ease: EASE.flow, delay }}
     >
       {children}
     </MotionTag>

@@ -64,7 +64,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <span className="tabular-nums">{categoryProducts.length} prodotti</span>
           </div>
         </Reveal>
-        <Reveal y={24} delay={0.05}>
+        <Reveal y={16} delay={0.05}>
           <h1 className="font-display mt-4 text-4xl md:text-6xl font-bold tracking-tight text-foreground">
             {category.name}
           </h1>
