@@ -8,7 +8,7 @@ const BASE =
 
 const VARIANTS: Record<Variant, string> = {
   primary: "bg-primary text-primary-foreground",
-  outline: "border border-border text-foreground hover:bg-muted",
+  outline: "border border-border text-foreground",
   light: "bg-background text-foreground",
 };
 
@@ -38,7 +38,7 @@ export function KineticButton({
       {/* red fill sweep */}
       <span
         aria-hidden
-        className="absolute inset-0 -z-0 origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100"
+        className="absolute inset-0 origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100"
       />
       <span className="relative z-10 transition-colors duration-200 group-hover:text-accent-foreground">
         {children}
