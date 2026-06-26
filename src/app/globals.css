@@ -129,6 +129,11 @@ html.lenis body {
   }
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 /* Custom cursor: hide the native one only while the kinetic cursor is mounted */
 html.cursor-kinetic,
 html.cursor-kinetic * {

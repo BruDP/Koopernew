@@ -7,6 +7,8 @@ import { getCategorySummaries, type Product, type CategorySummary } from "@/lib/
 import { Reveal } from "@/components/motion/Reveal";
 import { MagneticCard } from "@/components/motion/MagneticCard";
 import { ParallaxLayer } from "@/components/motion/ParallaxLayer";
+import { Marquee } from "@/components/motion/Marquee";
+import { CountUp } from "@/components/motion/CountUp";
 import { KineticButton } from "@/components/ui/KineticButton";
 
 export default function Home() {
@@ -55,11 +57,11 @@ export default function Home() {
               <Reveal y={16} delay={0.26}>
                 <dl className="mt-12 flex gap-8 font-mono text-sm">
                   <div>
-                    <dt className="text-2xl font-bold text-foreground tabular-nums">{totalProducts}</dt>
+                    <dt className="text-2xl font-bold text-foreground tabular-nums"><CountUp to={totalProducts} /></dt>
                     <dd className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Prodotti</dd>
                   </div>
                   <div className="border-l border-border pl-8">
-                    <dt className="text-2xl font-bold text-foreground tabular-nums">{categoriesData.length}</dt>
+                    <dt className="text-2xl font-bold text-foreground tabular-nums"><CountUp to={categoriesData.length} /></dt>
                     <dd className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Categorie</dd>
                   </div>
                   <div className="border-l border-border pl-8">
@@ -107,6 +109,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Marquee items={categoriesData.map((c) => c.name)} />
 
       {/* ───────────────────── CATEGORIE (BENTO) ───────────────────── */}
       <section className="container mx-auto px-4 lg:px-8 py-20 md:py-28">
