@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ChevronRight } from "lucide-react";
 import productsData from "../../../data/products.json";
 import categoriesData from "../../../data/categories.json";
 import { CATEGORY_META } from "@/lib/catalog";
 import { Reveal } from "@/components/motion/Reveal";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export function generateStaticParams() {
   return categoriesData.map((cat) => ({ slug: cat.slug }));
@@ -37,14 +37,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   return (
     <div className="container mx-auto px-4 lg:px-8 py-12 md:py-16">
-      {/* Breadcrumb */}
-      <nav className="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">
-        <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-        <ChevronRight className="h-3.5 w-3.5" />
-        <Link href="/categorie" className="hover:text-foreground transition-colors">Categorie</Link>
-        <ChevronRight className="h-3.5 w-3.5" />
-        <span className="text-foreground">{category.name}</span>
-      </nav>
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Categorie", href: "/categorie" },
+        { label: category.name },
+      ]} />
 
       {/* Header */}
       <header className="mb-12 md:mb-16 max-w-3xl">

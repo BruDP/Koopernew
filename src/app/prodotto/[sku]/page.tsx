@@ -7,6 +7,7 @@ import productsData from "../../../data/products.json";
 import { Reveal } from "@/components/motion/Reveal";
 import { ProductGallery } from "@/components/ProductGallery";
 import { KineticButton } from "@/components/ui/KineticButton";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export function generateStaticParams() {
   return productsData.map((product) => ({ sku: product.sku }));
@@ -40,16 +41,11 @@ export default async function ProductPage({ params }: { params: Promise<{ sku: s
 
   return (
     <div className="container mx-auto px-4 lg:px-8 py-12 md:py-16">
-      {/* Breadcrumb */}
-      <nav className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground mb-8">
-        <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-        <ChevronRight className="h-3.5 w-3.5" />
-        <Link href={`/categoria/${categorySlug(product.category)}`} className="hover:text-foreground transition-colors">
-          {product.category}
-        </Link>
-        <ChevronRight className="h-3.5 w-3.5" />
-        <span className="text-foreground line-clamp-1">{product.title}</span>
-      </nav>
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: product.category, href: `/categoria/${categorySlug(product.category)}` },
+        { label: product.title },
+      ]} />
 
       <div className="grid md:grid-cols-2 gap-10 lg:gap-16 mb-24">
         {/* Gallery */}
