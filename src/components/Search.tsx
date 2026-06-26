@@ -5,6 +5,7 @@ import Link from "next/link";
 import Fuse from "fuse.js";
 import { Search as SearchIcon, X, Loader2 } from "lucide-react";
 import Image from "next/image";
+import { ProductImage } from "./ProductImage";
 
 type Product = {
   sku: string;
@@ -106,7 +107,7 @@ export function SearchDialog({ isOpen, onClose }: { isOpen: boolean; onClose: ()
                     >
                       <div className="w-16 h-16 relative bg-white rounded flex-shrink-0 overflow-hidden border border-border">
                         {product.images[0] && (
-                          <Image src={product.images[0]} alt={product.title} fill className="object-contain p-1 group-hover:scale-110 transition-transform" />
+                          <ProductImage src={product.images[0]} alt={product.title} fill className="object-contain p-1 group-hover:scale-110 transition-transform" />
                         )}
                       </div>
                       <div className="flex flex-col justify-center overflow-hidden">

@@ -7,6 +7,7 @@ import categoriesData from "../../../data/categories.json";
 import { CATEGORY_META } from "@/lib/catalog";
 import { Reveal } from "@/components/motion/Reveal";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { ProductImage } from "@/components/ProductImage";
 import { buildBreadcrumbList } from "@/lib/jsonld";
 
 export function generateStaticParams() {
@@ -87,7 +88,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             >
               <div className="relative aspect-square bg-white border-b border-border overflow-hidden">
                 {product.images[0] ? (
-                  <Image
+                  <ProductImage
                     src={product.images[0]}
                     alt={product.title}
                     fill

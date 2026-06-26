@@ -6,6 +6,7 @@ import { ChevronRight } from "lucide-react";
 import productsData from "../../../data/products.json";
 import { Reveal } from "@/components/motion/Reveal";
 import { ProductGallery } from "@/components/ProductGallery";
+import { ProductImage } from "@/components/ProductImage";
 import { KineticButton } from "@/components/ui/KineticButton";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { buildBreadcrumbList, buildProductSchema } from "@/lib/jsonld";
@@ -154,7 +155,7 @@ export default async function ProductPage({ params }: { params: Promise<{ sku: s
                 >
                   <div className="relative aspect-square bg-white border-b border-border">
                     {rel.images[0] && (
-                      <Image
+                      <ProductImage
                         src={rel.images[0]}
                         alt={rel.title}
                         fill
