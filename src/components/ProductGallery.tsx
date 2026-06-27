@@ -114,7 +114,7 @@ export function ProductGallery({ images, title }: { images: string[]; title: str
                 onClick={() => setActive(i)}
                 aria-label={`Vai all'immagine ${i + 1}`}
                 aria-pressed={active === i}
-                className="grid place-items-center min-h-[44px] min-w-[24px]"
+                className="grid place-items-center min-h-[44px] min-w-[44px]"
               >
                 <span
                   className={`block h-2 rounded-full transition-all ${

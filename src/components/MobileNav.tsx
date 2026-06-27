@@ -54,7 +54,7 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
           />
           {/* Panel */}
           <motion.aside
-            className="absolute right-0 top-0 h-full w-full max-w-[20rem] bg-background border-l border-border shadow-2xl flex flex-col overflow-y-auto"
+            className="absolute right-0 top-0 h-full w-full max-w-[20rem] bg-background border-l border-border shadow-2xl flex flex-col overflow-y-auto overscroll-y-contain"
             initial={reduce ? false : { x: "100%" }}
             animate={{ x: 0 }}
             exit={reduce ? undefined : { x: "100%" }}

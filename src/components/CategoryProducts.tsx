@@ -91,6 +91,7 @@ export function CategoryProducts({ products }: { products: Product[] }) {
             <select
               value={sort}
               onChange={(e) => { setSort(e.target.value as SortKey); resetShown(); }}
+              aria-label="Ordina prodotti"
               className="min-h-[44px] rounded-lg border border-border bg-background px-3 text-sm text-foreground"
             >
               <option value="relevance">Rilevanza</option>

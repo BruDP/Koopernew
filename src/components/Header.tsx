@@ -147,7 +147,8 @@ export function Header() {
                 <Search className="w-5 h-5" />
               </button>
               
-              <button 
+              <button
+                aria-label="Apri menu"
                 className="md:hidden grid place-items-center min-h-[44px] min-w-[44px] text-foreground"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -21,8 +21,13 @@ export function Lightbox({
 }) {
   const reduce = useReducedMotion();
   const [zoomed, setZoomed] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useScrollLock(true);
+
+  useEffect(() => {
+    closeButtonRef.current?.focus();
+  }, []);
 
   const go = (dir: number) => {
     setZoomed(false);
@@ -39,8 +44,7 @@ export function Lightbox({
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [index, images.length]);
+  }, [index, images.length, onClose]);
 
   return (
     <motion.div
@@ -58,6 +62,7 @@ export function Lightbox({
           {index + 1} / {images.length}
         </span>
         <button
+          ref={closeButtonRef}
           onClick={onClose}
           aria-label="Chiudi"
           className="grid place-items-center min-h-[44px] min-w-[44px] rounded-full hover:bg-muted text-foreground"
