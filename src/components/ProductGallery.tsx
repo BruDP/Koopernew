@@ -47,7 +47,7 @@ export function ProductGallery({ images, title }: { images: string[]; title: str
         <div className="relative aspect-square rounded-3xl border border-border bg-white overflow-hidden">
           {/* Mobile swipe track */}
           <motion.div
-            className="flex h-full md:hidden"
+            className="flex h-full md:hidden cursor-zoom-in"
             drag={gallery.length > 1 && !reduce ? "x" : false}
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.18}
@@ -55,20 +55,20 @@ export function ProductGallery({ images, title }: { images: string[]; title: str
               if (info.offset.x < -60) setActive((a) => clamp(a + 1));
               else if (info.offset.x > 60) setActive((a) => clamp(a - 1));
             }}
+            onClick={() => setLightboxOpen(true)}
             animate={{ x: `-${active * 100}%` }}
             transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 320, damping: 36 }}
           >
-            {gallery.map((img) => (
+            {gallery.map((img, i) => (
               <div
                 key={img}
                 className="relative h-full w-full flex-none"
-                onClick={() => setLightboxOpen(true)}
               >
                 <Image
                   src={img}
                   alt={title}
                   fill
-                  priority
+                  priority={i === 0}
                   sizes="100vw"
                   className="object-contain p-10 pointer-events-none"
                 />
