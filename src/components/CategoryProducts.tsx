@@ -53,9 +53,9 @@ export function CategoryProducts({ products }: { products: Product[] }) {
     <div>
       {/* Controls bar */}
       {(showSubFilters || hasPromo) && (
-        <div className="flex flex-wrap items-center gap-3 mb-8">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 mb-8">
           {showSubFilters && (
-            <div className="flex flex-wrap gap-2">
+            <div className="flex gap-2 overflow-x-auto hide-scrollbar sm:flex-wrap -mx-1 px-1">
               <FilterChip
                 active={activeSub === null}
                 onClick={() => { setActiveSub(null); resetShown(); }}
@@ -84,14 +84,14 @@ export function CategoryProducts({ products }: { products: Product[] }) {
             </FilterChip>
           )}
 
-          <div className="ml-auto flex items-center gap-3">
+          <div className="flex items-center justify-between gap-3 w-full sm:w-auto sm:ml-auto">
             <span className="font-mono text-xs text-muted-foreground">
               {filtered.length} prodott{filtered.length === 1 ? "o" : "i"}
             </span>
             <select
               value={sort}
               onChange={(e) => { setSort(e.target.value as SortKey); resetShown(); }}
-              className="rounded-lg border border-border bg-background px-2 py-1.5 text-xs text-foreground"
+              className="min-h-[44px] rounded-lg border border-border bg-background px-3 text-sm text-foreground"
             >
               <option value="relevance">Rilevanza</option>
               <option value="price-asc">Prezzo ↑</option>
@@ -197,7 +197,7 @@ function FilterChip({
   return (
     <button
       onClick={onClick}
-      className={`rounded-full border px-3 py-1 text-xs font-semibold capitalize transition-colors ${
+      className={`flex-none rounded-full border px-4 py-2 text-xs font-semibold capitalize transition-colors ${
         active
           ? activeClass
           : "border-border text-muted-foreground hover:border-muted-foreground/40"
