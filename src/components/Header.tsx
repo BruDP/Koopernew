@@ -4,9 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
-import { Search, Menu, X, ChevronDown } from "lucide-react";
+import { Search, Menu, ChevronDown } from "lucide-react";
 import categoriesData from "../data/categories.json";
 import { SearchDialog } from "./Search";
+import { MobileNav } from "./MobileNav";
 import Image from "next/image";
 
 export function Header() {
@@ -140,50 +141,25 @@ export function Header() {
             <div className="flex items-center gap-4">
               <button 
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2 hover:bg-muted rounded-full transition-colors text-foreground"
+                className="grid place-items-center min-h-[44px] min-w-[44px] hover:bg-muted rounded-full transition-colors text-foreground"
                 aria-label="Cerca prodotti"
               >
                 <Search className="w-5 h-5" />
               </button>
               
               <button 
-                className="md:hidden p-2 text-foreground"
+                className="md:hidden grid place-items-center min-h-[44px] min-w-[44px] text-foreground"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                <Menu className="w-6 h-6" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-border bg-background">
-            <nav className="flex flex-col p-4 space-y-4 font-medium text-lg">
-              <div className="pb-2 border-b border-border">
-                <span className="text-sm text-muted-foreground font-bold uppercase tracking-wider mb-3 block">Categorie</span>
-                <ul className="space-y-3">
-                  {categoriesData.map(cat => (
-                    <li key={cat.slug}>
-                      <Link
-                        href={`/categoria/${cat.slug}`}
-                        data-cursor="link"
-                        className="block text-foreground"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {cat.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Link href="/kooperx" data-cursor="link" onClick={() => setIsMobileMenuOpen(false)}>KooperX</Link>
-              <Link href="/azienda" data-cursor="link" onClick={() => setIsMobileMenuOpen(false)}>Azienda</Link>
-              <Link href="/assistenza" data-cursor="link" onClick={() => setIsMobileMenuOpen(false)}>Assistenza</Link>
-            </nav>
-          </div>
-        )}
       </header>
+
+      <MobileNav open={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
 
       {/* Search Modal */}
       <SearchDialog isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
