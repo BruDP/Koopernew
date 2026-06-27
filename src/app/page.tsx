@@ -35,13 +35,13 @@ export default function Home() {
                 </span>
               </Reveal>
               <Reveal y={28} delay={0.05}>
-                <h1 className="font-display mt-6 text-5xl md:text-6xl xl:text-7xl font-bold leading-[0.98] tracking-tight text-foreground">
+                <h1 className="font-display mt-6 text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.02] sm:leading-[0.98] tracking-tight text-foreground">
                   Tecnologia che<br />
                   <span className="text-brand">si sente a casa.</span>
                 </h1>
               </Reveal>
               <Reveal y={20} delay={0.12}>
-                <p className="mt-7 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-md">
+                <p className="mt-6 text-base md:text-xl text-muted-foreground leading-relaxed max-w-md">
                   Piccoli elettrodomestici, arredo e idee smart per ogni stanza.
                   Progettati per durare, pensati per semplificarti la vita.
                 </p>
@@ -55,17 +55,17 @@ export default function Home() {
                 </div>
               </Reveal>
               <Reveal y={16} delay={0.26}>
-                <dl className="mt-12 flex gap-8 font-mono text-sm">
+                <dl className="mt-10 flex gap-5 sm:gap-8 font-mono text-sm">
                   <div>
-                    <dt className="text-2xl font-bold text-foreground tabular-nums"><CountUp to={totalProducts} /></dt>
+                    <dt className="text-xl sm:text-2xl font-bold text-foreground tabular-nums"><CountUp to={totalProducts} /></dt>
                     <dd className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Prodotti</dd>
                   </div>
-                  <div className="border-l border-border pl-8">
-                    <dt className="text-2xl font-bold text-foreground tabular-nums"><CountUp to={categoriesData.length} /></dt>
+                  <div className="border-l border-border pl-5 sm:pl-8">
+                    <dt className="text-xl sm:text-2xl font-bold text-foreground tabular-nums"><CountUp to={categoriesData.length} /></dt>
                     <dd className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Categorie</dd>
                   </div>
-                  <div className="border-l border-border pl-8">
-                    <dt className="text-2xl font-bold text-foreground">Galileo</dt>
+                  <div className="border-l border-border pl-5 sm:pl-8">
+                    <dt className="text-xl sm:text-2xl font-bold text-foreground">Galileo</dt>
                     <dd className="text-xs uppercase tracking-wider text-muted-foreground mt-1">S.p.A.</dd>
                   </div>
                 </dl>
@@ -75,7 +75,7 @@ export default function Home() {
             {/* Floating product */}
             <div className="lg:col-span-6 xl:col-span-7 relative">
               <ParallaxLayer distance={60} className="relative">
-                <div className="relative mx-auto aspect-[5/6] max-w-md lg:max-w-lg">
+                <div className="relative mx-auto aspect-[5/6] max-w-[280px] sm:max-w-md lg:max-w-lg">
                   <div className="absolute -inset-6 rounded-[2.5rem] bg-brand/[0.04] blur-2xl" />
                   <div className="relative h-full w-full rounded-[2rem] border border-border bg-white shadow-[0_30px_80px_-30px_rgba(60,72,88,0.45)] overflow-hidden">
                     {heroProduct?.images?.[0] && (
@@ -113,7 +113,7 @@ export default function Home() {
       <Marquee items={categoriesData.map((c) => c.name)} />
 
       {/* ───────────────────── CATEGORIE (BENTO) ───────────────────── */}
-      <section className="container mx-auto px-4 lg:px-8 py-20 md:py-28">
+      <section className="container mx-auto px-4 lg:px-8 py-14 md:py-28">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-14">
             <div>
@@ -143,7 +143,7 @@ export default function Home() {
       </section>
 
       {/* ───────────────────── I PIÙ SCELTI ───────────────────── */}
-      <section className="py-20 md:py-24 border-y border-border bg-muted/40">
+      <section className="py-14 md:py-24 border-y border-border bg-muted/40">
         <div className="container mx-auto px-4 lg:px-8">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
@@ -169,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* ───────────────────── PERCHÉ KOOPER ───────────────────── */}
-      <section className="container mx-auto px-4 lg:px-8 py-20 md:py-28">
+      <section className="container mx-auto px-4 lg:px-8 py-14 md:py-28">
         <div className="relative rounded-[2.5rem] overflow-hidden bg-brand text-primary-foreground">
           <div className="absolute inset-0 catalog-grid opacity-[0.15] [mask-image:radial-gradient(ellipse_at_bottom_left,black,transparent_70%)]" />
           <div className="relative p-8 md:p-14 lg:p-20">
